@@ -26,9 +26,11 @@ class RepositoryList extends React.Component<IProps> {
 }
 
 const mapStateToProps = (store: IAppState) => {
-    return {
-        repositories: store.repositoryState.repositories,
-    };
+    let repositories:IRepository[] = [];
+    if(store.repositoryState && store.repositoryState.repositories) {
+        repositories = store.repositoryState.repositories
+    }
+    return { repositories };
 };
 
 export default connect(mapStateToProps)(RepositoryList);
