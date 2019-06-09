@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { IAppState } from '../Store';
-import { IRepository } from '../reducers/RepositoryReducer';
+import { IRepository } from '../domain/types';
 
 interface IProps {
     repositories: IRepository[];

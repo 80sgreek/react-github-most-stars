@@ -2,22 +2,14 @@ import { Reducer } from 'redux';
 import {
   RepositoryActions,
   RepositoryActionTypes,
-} from '../actions/RepositoryActions';
-
-export interface IRepository {
-  id: number;
-  name: string;
-}
-
-export interface IRepositoryState {
-  readonly repositories: IRepository[];
-}
+  IRepositoryState
+} from '../types';
 
 const initialCharacterState: IRepositoryState = {
   repositories: [],
 };
 
-export const RepositoryReducer: Reducer<IRepositoryState, RepositoryActions> = (
+export const repositoryReducer: Reducer<IRepositoryState, RepositoryActions> = (
   state = initialCharacterState,
   action
 ) => {

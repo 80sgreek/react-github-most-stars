@@ -2,7 +2,8 @@ import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import moxios from 'moxios';
 
-import { getAllRepositories, RepositoryActionTypes } from '../RepositoryActions';
+import { getAllRepositories } from '../RepositoryActions';
+import { RepositoryActionTypes } from '../../types';
 
 import mockRepositoriesResponse from './mockRepositoriesResponse.json';
 

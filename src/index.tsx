@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 
 import { Store } from 'redux';
 import configureStore, { IAppState } from './Store';
-import { getAllRepositories } from './actions/RepositoryActions';
+import { getAllRepositories } from './domain/actions/RepositoryActions';
 
 import './index.css';
 import App from './App';
