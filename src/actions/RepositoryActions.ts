@@ -6,9 +6,7 @@ import {
   IRepositoryState
 } from '../reducers/RepositoryReducer';
 
-const getMostStarredGithubRepoUrl = (numberOfResults:number):string => {
-  return `https://api.github.com/search/repositories?q=language:javascript&sort=stars&order=desc&per_page=${numberOfResults}`;
-}
+const getMostStarredGithubRepoUrl = (numberOfResults:number):string => `https://api.github.com/search/repositories?q=language:javascript&sort=stars&order=desc&per_page=${numberOfResults}`;
 
 export enum RepositoryActionTypes {
   GET_ALL = 'GET_ALL',
