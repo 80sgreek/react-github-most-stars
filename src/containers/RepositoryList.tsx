@@ -27,8 +27,8 @@ class RepositoryList extends React.Component<IProps> {
 
 const mapStateToProps = (store: IAppState) => {
     let repositories:IRepository[] = [];
-    if(store.repositoryState && store.repositoryState.repositories) {
-        repositories = store.repositoryState.repositories
+    if(store.repositoriesState && store.repositoriesState.items) {
+        repositories = store.repositoriesState.items
     }
     return { repositories };
 };

@@ -12,7 +12,7 @@ describe('RepositoryReducer', () => {
         const returnedState = repositoryReducer(undefined, action);
 
         //ASSERT
-        expect(returnedState.repositories).toEqual(initialState.repositories);
+        expect(returnedState.items).toEqual(initialState.repositories);
 
     });
 
@@ -34,7 +34,7 @@ describe('RepositoryReducer', () => {
         const returnedState = repositoryReducer(undefined, action);
 
         //ASSERT
-        expect(returnedState.repositories).toEqual(expectedState.repositories);
+        expect(returnedState.items).toEqual(expectedState.repositories);
 
     });
 

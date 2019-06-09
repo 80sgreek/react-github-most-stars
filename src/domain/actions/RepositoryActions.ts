@@ -3,7 +3,7 @@ import { ThunkAction } from 'redux-thunk';
 import axios from 'axios';
 import {
   IRepository,
-  IRepositoryState 
+  IRepositoriesState 
 } from '../interfaces';
 import {
   RepositoryActionTypes,
@@ -13,7 +13,7 @@ import {
 const getMostStarredGithubRepoUrl = (numberOfResults:number):string => `https://api.github.com/search/repositories?q=language:javascript&sort=stars&order=desc&per_page=${numberOfResults}`;
 
 export const getAllRepositories: ActionCreator<
-  ThunkAction<Promise<any>, IRepositoryState, null, IRepositoryGetAllAction>
+  ThunkAction<Promise<any>, IRepositoriesState, null, IRepositoryGetAllAction>
 > = () => {
   return async (dispatch: Dispatch) => {
     try {

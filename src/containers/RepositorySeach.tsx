@@ -25,12 +25,18 @@ class RepositorySearch extends React.Component<IProps> {
 
 const mapStateToProps = (store: IAppState) => {
     let repositories:IRepository[] = [];
-    if(store.repositoryState && store.repositoryState.repositories) {
-        repositories = store.repositoryState.repositories
+    let updatedAt;
+    if(store.repositoriesState) {
+        if(store.repositoriesState.items) {
+            repositories = store.repositoriesState.items;
+        }
+        if(store.repositoriesState.updatedAt){
+            updatedAt = store.repositoriesState.updatedAt;
+        }
     }
     return { 
         repositories,
-        repositoriesUpdated: store.repositoryState.repositoriesUpdated 
+        updatedAt
     };
 };
 

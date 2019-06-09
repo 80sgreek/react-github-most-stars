@@ -7,6 +7,8 @@ import configureMockStore from "redux-mock-store";
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 import App from './App';
+import { IRepositoriesState } from './domain/interfaces';
+import moment from 'moment';
 
 describe('Root App', () => {
 
@@ -23,8 +25,8 @@ describe('Root App', () => {
   it('renders without crashing if using the initial state', () => {
 
     //ARRANGE
-    const storeState = { repositoryState: {} };
-    const store = mockStore(storeState);
+    const storeState:IRepositoriesState = {};
+    const store = mockStore();
 
     //ACT && ASSERT 
     expect(() => {
@@ -38,7 +40,7 @@ describe('Root App', () => {
   it('renders without crashing if using an updated state', () => {
 
     //ARRANGE
-    const storeState = { repositoryState: {} };
+    const storeState:IRepositoriesState = { updatedAt: moment()};
     const store = mockStore(storeState);
 
     //ACT && ASSERT 

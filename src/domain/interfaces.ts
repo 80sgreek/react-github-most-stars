@@ -10,8 +10,8 @@ export interface IRepository {
 
 }
 
-export interface IRepositoryState {
-    readonly repositories?: IRepository[];
-    readonly repositoriesUpdated?: moment.Moment;
+export interface IRepositoriesState {
+    readonly items?: IRepository[];
+    readonly updatedAt?: moment.Moment;
 }
 

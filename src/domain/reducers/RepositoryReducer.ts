@@ -5,14 +5,14 @@ import {
   RepositoryActionTypes
 } from '../actions/actionTypes';
 import {
-  IRepositoryState
+  IRepositoriesState
 } from '../interfaces';
 
-const initialState: IRepositoryState = {
-  repositories: []
+const initialState: IRepositoriesState = {
+  items: []
 };
 
-export const repositoryReducer: Reducer<IRepositoryState, RepositoryActions> = (
+export const repositoryReducer: Reducer<IRepositoriesState, RepositoryActions> = (
   state = initialState,
   action
 ) => {
@@ -20,8 +20,8 @@ export const repositoryReducer: Reducer<IRepositoryState, RepositoryActions> = (
     case RepositoryActionTypes.GET_ALL: {
       return {
         ...state,
-        repositories: action.repositories,
-        repositoriesUpdated: moment()
+        items: action.repositories,
+        updatedAt: moment()
       };
     }
     default:

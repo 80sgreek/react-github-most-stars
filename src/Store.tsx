@@ -6,14 +6,14 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 import { repositoryReducer } from './domain/reducers/RepositoryReducer';
-import { IRepositoryState } from './domain/interfaces';
+import { IRepositoriesState } from './domain/interfaces';
 
 export interface IAppState {
-    repositoryState: IRepositoryState;
+    repositoriesState: IRepositoriesState;
 }
 
 const rootReducer = combineReducers<IAppState>({
-    repositoryState: repositoryReducer,
+    repositoriesState: repositoryReducer,
 });
 
 export default function configureStore(): Store<IAppState, any> {
