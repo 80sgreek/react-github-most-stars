@@ -17,7 +17,7 @@ class RepositoryList extends React.Component<IProps> {
                 {repositories &&
                     repositories.map(repository => {
                         return (
-                            <RepositoryCard {...repository} />
+                            <RepositoryCard key={repository.id} {...repository} />
                         );
                     })}
             </ol>
