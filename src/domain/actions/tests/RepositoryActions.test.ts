@@ -3,7 +3,7 @@ import thunk from "redux-thunk";
 import moxios from 'moxios';
 
 import { getAllRepositories } from '../RepositoryActions';
-import { RepositoryActionTypes } from '../../types';
+import { RepositoryActionTypes } from '../actionTypes';
 
 import mockRepositoriesResponse from './mockRepositoriesResponse.json';
 

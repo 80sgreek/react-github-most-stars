@@ -1,9 +1,11 @@
 import { Reducer } from 'redux';
 import {
   RepositoryActions,
-  RepositoryActionTypes,
+  RepositoryActionTypes
+} from '../actions/actionTypes';
+import {
   IRepositoryState
-} from '../types';
+} from '../interfaces';
 
 const initialCharacterState: IRepositoryState = {
   repositories: [],

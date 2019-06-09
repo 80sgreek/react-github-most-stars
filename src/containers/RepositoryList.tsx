@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { IAppState } from '../Store';
-import { IRepository } from '../domain/types';
+import { IRepository } from '../domain/interfaces';
+
+import RepositoryCard from '../components/RepositoryCard';
 
 interface IProps {
     repositories: IRepository[];
@@ -11,16 +13,14 @@ class RepositoryList extends React.Component<IProps> {
     public render() {
         const { repositories } = this.props;
         return (
-            <ul>
+            <ol>
                 {repositories &&
                     repositories.map(repository => {
                         return (
-                            <li key={repository.id}>
-                                {repository.name}
-                            </li>
+                            <RepositoryCard {...repository} />
                         );
                     })}
-            </ul>
+            </ol>
         );
     }
 }

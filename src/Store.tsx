@@ -6,7 +6,7 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 import { repositoryReducer } from './domain/reducers/RepositoryReducer';
-import { IRepositoryState } from './domain/types';
+import { IRepositoryState } from './domain/interfaces';
 
 export interface IAppState {
     repositoryState: IRepositoryState;

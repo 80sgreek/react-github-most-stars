@@ -5,10 +5,11 @@ import RepositoryList from './containers/RepositoryList';
 
 const App: React.SFC<{}> = () => {
   return (
-    <>
-      <h1>Repositories</h1>
+    <div>
+      <h1>Most Stars: 'javascript'</h1>
+      <p>Repos created since XXX</p>
       <RepositoryList />
-    </>
+    </div>
   );
 };
 

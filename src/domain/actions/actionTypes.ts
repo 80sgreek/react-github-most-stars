@@ -1,13 +1,5 @@
-export interface IRepository {
-    id: number;
-    name: string;
-}
+import { IRepository } from '../interfaces';
 
-export interface IRepositoryState {
-    readonly repositories: IRepository[];
-}
-
-//Actions
 export interface IRepositoryGetAllAction {
     type: RepositoryActionTypes.GET_ALL;
     repositories: IRepository[];
