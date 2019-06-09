@@ -23,8 +23,12 @@ export const getAllRepositories: ActionCreator<
   return async (dispatch: Dispatch) => {
     try {
       const response = await axios.get('https://api.github.com/search/repositories?q=language:javascript&sort=stars&order=desc&per_page=3');
+      let repositories:IRepository[] = [];
+      if(response.data, response.data.items) {
+        repositories = response.data.items;
+      }
       dispatch({
-        repositories: response.data.items,
+        repositories,
         type: RepositoryActionTypes.GET_ALL
       });
     } catch (err) {
