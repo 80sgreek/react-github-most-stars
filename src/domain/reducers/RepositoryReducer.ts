@@ -1,4 +1,5 @@
 import { Reducer } from 'redux';
+import moment from 'moment';
 import {
   RepositoryActions,
   RepositoryActionTypes
@@ -7,12 +8,12 @@ import {
   IRepositoryState
 } from '../interfaces';
 
-const initialCharacterState: IRepositoryState = {
-  repositories: [],
+const initialState: IRepositoryState = {
+  repositories: []
 };
 
 export const repositoryReducer: Reducer<IRepositoryState, RepositoryActions> = (
-  state = initialCharacterState,
+  state = initialState,
   action
 ) => {
   switch (action.type) {
@@ -20,6 +21,7 @@ export const repositoryReducer: Reducer<IRepositoryState, RepositoryActions> = (
       return {
         ...state,
         repositories: action.repositories,
+        repositoriesUpdated: moment()
       };
     }
     default:

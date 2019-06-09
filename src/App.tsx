@@ -1,13 +1,14 @@
 import React from 'react';
+
 import './App.css';
 
+import RepositorySearch from './containers/RepositorySeach';
 import RepositoryList from './containers/RepositoryList';
 
-const App: React.SFC<{}> = () => {
+const App: React.FC<{}> = () => {
   return (
     <div>
-      <h1>Most Stars: 'javascript'</h1>
-      <p>Repos created since XXX</p>
+      <RepositorySearch />
       <RepositoryList />
     </div>
   );

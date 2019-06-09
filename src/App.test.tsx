@@ -10,7 +10,7 @@ import App from './App';
 
 describe('Root App', () => {
 
-  let div:Element;
+  let div: Element;
 
   beforeEach(function () {
     div = document.createElement('div');
@@ -23,7 +23,8 @@ describe('Root App', () => {
   it('renders without crashing if using the initial state', () => {
 
     //ARRANGE
-    const store = mockStore();
+    const storeState = { repositoryState: {} };
+    const store = mockStore(storeState);
 
     //ACT && ASSERT 
     expect(() => {
@@ -36,10 +37,9 @@ describe('Root App', () => {
 
   it('renders without crashing if using an updated state', () => {
 
-      //ARRANGE
-    const initialisedStoreState = { repositoryState : {repositories: [] } };
-    const store = mockStore(initialisedStoreState);
-    const div = document.createElement('div');
+    //ARRANGE
+    const storeState = { repositoryState: {} };
+    const store = mockStore(storeState);
 
     //ACT && ASSERT 
     expect(() => {

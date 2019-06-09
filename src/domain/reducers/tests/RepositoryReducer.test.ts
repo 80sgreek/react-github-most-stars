@@ -1,9 +1,9 @@
 import { repositoryReducer } from '../RepositoryReducer';
-import { RepositoryActionTypes, IRepositoryGetAllAction } from '../../types';
+import { RepositoryActionTypes, IRepositoryGetAllAction } from '../../actions/actionTypes';
 
 describe('RepositoryReducer', () => {
 
-    it('returns the initial state', () => {
+    it('returns the initial repositories state', () => {
 
         //ARRANGE
         const action:IRepositoryGetAllAction = { type:RepositoryActionTypes.GET_ALL, repositories: [] };
@@ -13,11 +13,11 @@ describe('RepositoryReducer', () => {
         const returnedState = repositoryReducer(undefined, action);
 
         //ASSERT
-        expect(returnedState).toEqual(initialState);
+        expect(returnedState.repositories).toEqual(initialState.repositories);
 
     });
 
-    it('returns the correct updated state from initial', () => {
+    it('returns the correct updated repositories state from initial', () => {
 
         //ARRANGE
         const action:IRepositoryGetAllAction = { type:RepositoryActionTypes.GET_ALL, repositories: [{ id: 123, name: 'test1name' }] };
@@ -27,7 +27,7 @@ describe('RepositoryReducer', () => {
         const returnedState = repositoryReducer(undefined, action);
 
         //ASSERT
-        expect(returnedState).toEqual(expectedState);
+        expect(returnedState.repositories).toEqual(expectedState.repositories);
 
     });
 

@@ -1,3 +1,5 @@
+import moment from "moment";
+
 export interface IRepository {
     id: number;
     full_name: string;
@@ -9,6 +11,7 @@ export interface IRepository {
 }
 
 export interface IRepositoryState {
-    readonly repositories: IRepository[];
+    readonly repositories?: IRepository[];
+    readonly repositoriesUpdated?: moment.Moment;
 }
 
