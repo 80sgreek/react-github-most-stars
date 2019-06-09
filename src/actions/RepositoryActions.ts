@@ -6,6 +6,10 @@ import {
   IRepositoryState
 } from '../reducers/RepositoryReducer';
 
+const getMostStarredGithubRepoUrl = (numberOfResults:number):string => {
+  return `https://api.github.com/search/repositories?q=language:javascript&sort=stars&order=desc&per_page=${numberOfResults}`;
+}
+
 export enum RepositoryActionTypes {
   GET_ALL = 'GET_ALL',
 }
@@ -22,7 +26,7 @@ export const getAllRepositories: ActionCreator<
 > = () => {
   return async (dispatch: Dispatch) => {
     try {
-      const response = await axios.get('https://api.github.com/search/repositories?q=language:javascript&sort=stars&order=desc&per_page=3');
+      const response = await axios.get(getMostStarredGithubRepoUrl(3));
       let repositories:IRepository[] = [];
       if(response.data, response.data.items) {
         repositories = response.data.items;
