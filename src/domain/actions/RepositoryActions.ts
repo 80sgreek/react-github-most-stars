@@ -10,22 +10,32 @@ import {
   IRepositoryGetAllAction
 } from './actionTypes';
 
-const getMostStarredGithubRepoUrl = (numberOfResults:number):string => `https://api.github.com/search/repositories?q=language:javascript&sort=stars&order=desc&per_page=${numberOfResults}`;
+const getMostStarredGithubRepoUrl = (language:string, numberOfResults:number):string => `https://api.github.com/search/repositories?q=language:${language}&type=Repositories&sort=stars&order=desc&per_page=${numberOfResults}`;
 
 export const getAllRepositories: ActionCreator<
   ThunkAction<Promise<any>, IRepositoriesState, null, IRepositoryGetAllAction>
-> = () => {
+> = (language:string, numberOfResults:number = 3) => {
   return async (dispatch: Dispatch) => {
+
+    let repositories:IRepository[] = [];
+
     try {
-      const response = await axios.get(getMostStarredGithubRepoUrl(3));
-      let repositories:IRepository[] = [];
-      if(response.data && response.data.items) {
-        repositories = response.data.items;
+      const cleanLanguage = language.replace(/[|&;$%@"<>()+,]/g, "");
+      try {
+        const response = await axios.get(getMostStarredGithubRepoUrl(cleanLanguage, numberOfResults));
+        if(response.data && response.data.items) {
+          repositories = response.data.items;
+        }
+      } catch (err) {
+        console.log(err);
       }
+
       dispatch({
+        searchString: cleanLanguage,
         repositories,
         type: RepositoryActionTypes.GET_ALL
       });
+
     } catch (err) {
       console.error(err);
     }

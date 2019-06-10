@@ -20,6 +20,7 @@ export const repositoryReducer: Reducer<IRepositoriesState, RepositoryActions> =
     case RepositoryActionTypes.GET_ALL: {
       return {
         ...state,
+        searchString: action.searchString,
         items: action.repositories,
         updatedAt: moment()
       };

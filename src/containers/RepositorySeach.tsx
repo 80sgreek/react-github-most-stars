@@ -4,17 +4,30 @@ import { IAppState } from '../Store';
 import moment from 'moment';
 import { IRepository } from '../domain/interfaces';
 
+import { getAllRepositories } from '../domain/actions/RepositoryActions';
+import { ChangeEvent } from 'react';
+
 interface IProps {
-    repositories: IRepository[];
+    searchString: string;
+    searchAction?: (searchString:string) => void;
+    repositories?: IRepository[];
     repositoriesUpdated?: moment.Moment;
 }
 
 class RepositorySearch extends React.Component<IProps> {
+
+    searchOnChange = (event:ChangeEvent<HTMLInputElement>) => {
+        if(this.props.searchAction) {
+            this.props.searchAction(event.currentTarget.value);
+        }
+    }
+
     public render() {
-        const { repositoriesUpdated } = this.props;
+        const { searchString, repositoriesUpdated } = this.props;
         return (
             <header>
-                <h1>Most Stars: 'javascript'</h1>
+                <h1>Most Stars: '{searchString}'</h1>
+                <input value={searchString} onChange={this.searchOnChange} />
                 {repositoriesUpdated && (
                     <p>Repos created since {repositoriesUpdated.format('Do MMMM YYYY')}</p>
                 )}
@@ -24,9 +37,13 @@ class RepositorySearch extends React.Component<IProps> {
 }
 
 const mapStateToProps = (store: IAppState) => {
+    let searchString = '';
     let repositories:IRepository[] = [];
     let updatedAt;
     if(store.repositoriesState) {
+        if(store.repositoriesState.searchString) {
+            searchString = store.repositoriesState.searchString;
+        }
         if(store.repositoriesState.items) {
             repositories = store.repositoriesState.items;
         }
@@ -35,9 +52,16 @@ const mapStateToProps = (store: IAppState) => {
         }
     }
     return { 
+        searchString,
         repositories,
         updatedAt
     };
 };
 
-export default connect(mapStateToProps)(RepositorySearch);
+const mapDispatchToProps = (dispatch:any) => {
+    return {
+      searchAction: (language:string) => dispatch(getAllRepositories(language))
+    }
+  }
+
+export default connect(mapStateToProps, mapDispatchToProps)(RepositorySearch);

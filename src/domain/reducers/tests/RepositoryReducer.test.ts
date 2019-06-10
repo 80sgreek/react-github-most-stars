@@ -5,7 +5,7 @@ describe('RepositoryReducer', () => {
     it('returns the initial repositories state', () => {
 
         //ARRANGE
-        const action:IRepositoryGetAllAction = { type:RepositoryActionTypes.GET_ALL, repositories: [] };
+        const action:IRepositoryGetAllAction = { searchString: '', type:RepositoryActionTypes.GET_ALL, repositories: [] };
         const initialState = { repositories: [] };
 
         //ACT
@@ -19,6 +19,7 @@ describe('RepositoryReducer', () => {
     it('returns the correct updated repositories state from initial', () => {
 
         //ARRANGE
+        const testLanguage = 'test1Language'
         const testRepositories = [{ 
             id: 123, 
             full_name: 'test1name', 
@@ -27,7 +28,7 @@ describe('RepositoryReducer', () => {
             html_url: 'test1url', 
             stargazers_count: 456 
         }];
-        const action:IRepositoryGetAllAction = { type:RepositoryActionTypes.GET_ALL, repositories: testRepositories };
+        const action:IRepositoryGetAllAction = { searchString: testLanguage, type:RepositoryActionTypes.GET_ALL, repositories: testRepositories };
         const expectedState = { repositories: testRepositories };
 
         //ACT

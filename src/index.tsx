@@ -22,8 +22,9 @@ const Root: React.SFC<IProps> = props => {
   );
 };
 
+
 const store = configureStore();
-store.dispatch(getAllRepositories());
+store.dispatch(getAllRepositories('Javascript', 3));
 
 ReactDOM.render(<Root store={store} />, document.getElementById('root') as HTMLElement);
 

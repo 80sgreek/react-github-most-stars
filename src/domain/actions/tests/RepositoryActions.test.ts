@@ -31,13 +31,13 @@ describe("getAllRepositories", () => {
     });
 
     const expectedActions = [
-      { type: RepositoryActionTypes.GET_ALL, repositories: [] },
+      { searchString: '', type: RepositoryActionTypes.GET_ALL, repositories: [] },
     ];
 
     const store = mockStore();
 
     //ACT
-    await store.dispatch<any>(getAllRepositories());
+    await store.dispatch<any>(getAllRepositories('', 0));
 
     //ASSERT
     expect(store.getActions()).toEqual(expectedActions);
@@ -54,13 +54,13 @@ describe("getAllRepositories", () => {
     });
 
     const expectedActions = [
-      { type: RepositoryActionTypes.GET_ALL, repositories: [] },
+      { searchString: '', type: RepositoryActionTypes.GET_ALL, repositories: [] },
     ];
 
     const store = mockStore();
 
     //ACT
-    await store.dispatch<any>(getAllRepositories());
+    await store.dispatch<any>(getAllRepositories('', 0));
 
     //ASSERT
     expect(store.getActions()).toEqual(expectedActions);
@@ -77,13 +77,13 @@ describe("getAllRepositories", () => {
     });
 
     const expectedActions = [
-      { type: RepositoryActionTypes.GET_ALL, repositories: mockRepositoriesResponse.items },
+      { searchString: '', type: RepositoryActionTypes.GET_ALL, repositories: mockRepositoriesResponse.items },
     ];
 
     const store = mockStore();
 
     //ACT
-    await store.dispatch<any>(getAllRepositories());
+    await store.dispatch<any>(getAllRepositories('' ,0));
 
     //ASSERT
     expect(store.getActions()).toEqual(expectedActions);
