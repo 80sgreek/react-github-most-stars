@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { IAppState } from '../Store';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
 import { IRepository } from '../domain/interfaces';
-
 import RepositoryCard from '../components/RepositoryCard';
 
 interface IProps {
@@ -13,14 +14,16 @@ class RepositoryList extends React.Component<IProps> {
     public render() {
         const { repositories } = this.props;
         return (
-            <ol>
+            <List>
                 {repositories &&
                     repositories.map(repository => {
                         return (
-                            <RepositoryCard key={repository.id} {...repository} />
+                            <ListItem disableGutters>
+                                <RepositoryCard key={repository.id} {...repository} />
+                            </ListItem>
                         );
                     })}
-            </ol>
+            </List>
         );
     }
 }

@@ -1,23 +1,44 @@
 import * as React from 'react';
 import moment from 'moment';
-
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import StarIcon from '@material-ui/icons/Star';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 import { IRepository } from '../domain/interfaces';
 
 export default class RepositoryCard extends React.Component<IRepository, any> {
-    
+
     public render() {
         return (
-            <li>
-                <h2><a href={this.props.html_url}>{ this.props.full_name }</a></h2>
-                <p>{this.props.description}</p>
-                <span>Created: {moment(this.props.created_at).format('Do MMMM YYYY')}</span>
-                <span>
-                    <svg viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true">
-                        <path fillRule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"></path>
-                    </svg>
-                    {this.props.stargazers_count}
-                </span>
-            </li>
+            <Card>
+                <CardContent>
+                    <Typography variant="h6" gutterBottom>
+                        <a href={this.props.html_url}>{this.props.full_name}</a>
+                    </Typography>
+                    <Typography variant="body2" component="p" gutterBottom>
+                        {this.props.description}
+                    </Typography>
+                    <Grid
+                        container
+                        direction="row"
+                        justify="space-between"
+                        alignItems="center"
+                    >
+                        <Grid item>
+                            <Typography variant="body2" component="p" gutterBottom>
+                                Created: {moment(this.props.created_at).format('Do MMMM YYYY')}
+                            </Typography>
+                        </Grid>
+                        <Grid item>
+                            <Typography variant="body2" component="p" gutterBottom>
+                                <StarIcon />
+                                {this.props.stargazers_count}
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                </CardContent>
+            </Card >
         );
     }
 
