@@ -17,7 +17,7 @@ interface IProps {
     searchString: string;
     searchAction: (searchString: string) => void;
     clearAction: () => void;
-    updatedAt?: moment.Moment;
+    createdSince?: moment.Moment;
     searching?: boolean;
 }
 
@@ -35,16 +35,15 @@ class RepositorySearch extends React.Component<IProps> {
     }
 
     public render() {
-        const { searchString, updatedAt, searching } = this.props;
-        console.log('asfasf', this.props);
+        const { searchString, createdSince, searching } = this.props;
         return (
             <AppBar position="static" color="default" className="c-repositoryHeading">
                 <Toolbar>
                     <Container maxWidth='md'>
                         <header>
                             <Typography variant="h4" component="h1" gutterBottom>Most Stars: '{searchString}'</Typography>
-                            <TextField label="Currently Displaying" defaultValue={this.props.searchString} onChange={this.searchOnChange}/>
-                            {!searching && (<Typography variant="caption" component="p" gutterBottom>Repositories created since {updatedAt && updatedAt.format('Do MMMM YYYY, h:mm:ss a')}</Typography>)}
+                            <TextField label="Currently Displaying" defaultValue={this.props.searchString} onChange={this.searchOnChange} className="c-repositoryHeading-searchText" />
+                            {!searching && createdSince && (<Typography variant="caption" component="p" gutterBottom>Repositories created since {createdSince.format('Do MMMM YYYY')}</Typography>)}
                         </header>
                     </Container>
                 </Toolbar>
@@ -57,7 +56,7 @@ class RepositorySearch extends React.Component<IProps> {
 const mapStateToProps = (store: IAppState) => {
     let searchString = '';
     let repositories: IRepository[] = [];
-    let updatedAt;
+    let createdSince;
     if (store.repositoriesState) {
         if (store.repositoriesState.searchString) {
             searchString = store.repositoriesState.searchString;
@@ -65,14 +64,14 @@ const mapStateToProps = (store: IAppState) => {
         if (store.repositoriesState.items) {
             repositories = store.repositoriesState.items;
         }
-        if (store.repositoriesState.updatedAt) {
-            updatedAt = store.repositoriesState.updatedAt;
+        if (store.repositoriesState.createdSince) {
+            createdSince = store.repositoriesState.createdSince;
         }
     }
     return {
         searchString,
         repositories,
-        updatedAt,
+        createdSince,
         searching: store.repositoriesState.searching
     };
 };

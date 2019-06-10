@@ -23,7 +23,7 @@ export const repositoryReducer: Reducer<IRepositoriesState, RepositoryActions> =
         ...state,
         items: action.repositories,
         searchString: action.searchString,
-        updatedAt: moment(),
+        createdSince: action.createdSince,
         searching: false
       };
     }

@@ -25,7 +25,7 @@ describe('Root App', () => {
   it('renders without crashing if using the initial state', () => {
 
     //ARRANGE
-    const storeState:IRepositoriesState = {};
+    const storeState:IRepositoriesState = { searching: false };
     const store = mockStore();
 
     //ACT && ASSERT 
@@ -40,7 +40,7 @@ describe('Root App', () => {
   it('renders without crashing if using an updated state', () => {
 
     //ARRANGE
-    const storeState:IRepositoriesState = { updatedAt: moment()};
+    const storeState:IRepositoriesState = { createdSince: moment(), searching: false};
     const store = mockStore(storeState);
 
     //ACT && ASSERT 

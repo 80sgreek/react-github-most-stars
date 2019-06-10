@@ -12,7 +12,7 @@ export interface IRepository {
 export interface IRepositoriesState {
     readonly searchString?: string;
     readonly items?: IRepository[];
-    readonly updatedAt?: moment.Moment;
+    readonly createdSince?: moment.Moment;
     readonly searching: boolean;
 }
 

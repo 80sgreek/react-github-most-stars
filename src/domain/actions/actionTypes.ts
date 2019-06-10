@@ -1,6 +1,8 @@
 import { IRepository } from '../interfaces';
+import moment from 'moment';
 
 export interface IRepositoryGetAllAction {
+    createdSince: moment.Moment;
     type: RepositoryActionTypes.GET_ALL;
     searchString: string;
     repositories: IRepository[];

@@ -1,3 +1,7 @@
 .c-repositoryHeading {
     padding-top: 1rem;
 }
+.c-repositoryHeading .c-repositoryHeading-searchText {
+    /* I didn't want to add parent selector but specificity needed to increase to override material-ui */
+    margin-bottom: 1rem;
+}
