@@ -16,7 +16,7 @@ const rootReducer = combineReducers<IAppState>({
     repositoriesState: repositoryReducer,
 });
 
-export default function configureStore(): Store<IAppState, any> {
-    const store = createStore(rootReducer, undefined, applyMiddleware(thunk));
+export default function configureStore(initialState?:IAppState): Store<IAppState, any> {  
+    const store = createStore(rootReducer, initialState, applyMiddleware(thunk));
     return store;
 }

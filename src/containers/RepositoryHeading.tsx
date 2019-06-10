@@ -8,40 +8,47 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Container from '@material-ui/core/Container';
 import moment from 'moment';
 import { IRepository } from '../domain/interfaces';
-import { getAllRepositories } from '../domain/actions/RepositoryActions';
+import { getAllRepositories, clearAllRepositories } from '../domain/actions/RepositoryActions';
 import { ChangeEvent } from 'react';
+import { debounce } from 'lodash';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 interface IProps {
     searchString: string;
-    searchAction?: (searchString: string) => void;
-    repositories?: IRepository[];
-    repositoriesUpdated?: moment.Moment;
+    searchAction: (searchString: string) => void;
+    clearAction: () => void;
+    updatedAt?: moment.Moment;
+    searching?: boolean;
 }
 
 class RepositorySearch extends React.Component<IProps> {
+    
+    debouncedSearchOnChange = debounce(languageString => {
+        if (this.props.searchAction) {
+            this.props.searchAction(languageString);
+        }
+    }, 500);
 
     searchOnChange = (event: ChangeEvent<HTMLInputElement>) => {
-        if (this.props.searchAction) {
-            this.props.searchAction(event.currentTarget.value);
-        }
+        this.props.clearAction();
+        this.debouncedSearchOnChange((() => event.currentTarget.value)());
     }
 
     public render() {
-        const { searchString, repositoriesUpdated } = this.props;
+        const { searchString, updatedAt, searching } = this.props;
+        console.log('asfasf', this.props);
         return (
-            <AppBar position="static" color="default">
+            <AppBar position="static" color="default" className="c-repositoryHeading">
                 <Toolbar>
-
                     <Container maxWidth='md'>
                         <header>
-                            <Typography variant="h5" component="h1" gutterBottom>Most Stars: '{searchString}'</Typography>
-                            <TextField label="Currently Displaying" value={searchString} onChange={this.searchOnChange} />
-                            {repositoriesUpdated && (
-                                <p>Repos created since {repositoriesUpdated.format('Do MMMM YYYY')}</p>
-                            )}
+                            <Typography variant="h4" component="h1" gutterBottom>Most Stars: '{searchString}'</Typography>
+                            <TextField label="Currently Displaying" defaultValue={this.props.searchString} onChange={this.searchOnChange}/>
+                            {!searching && (<Typography variant="caption" component="p" gutterBottom>Repositories created since {updatedAt && updatedAt.format('Do MMMM YYYY, h:mm:ss a')}</Typography>)}
                         </header>
                     </Container>
                 </Toolbar>
+                {searching && (<LinearProgress />)}
             </AppBar>
         );
     }
@@ -65,13 +72,15 @@ const mapStateToProps = (store: IAppState) => {
     return {
         searchString,
         repositories,
-        updatedAt
+        updatedAt,
+        searching: store.repositoriesState.searching
     };
 };
 
 const mapDispatchToProps = (dispatch: any) => {
     return {
-        searchAction: (language: string) => dispatch(getAllRepositories(language))
+        searchAction: (language: string) => dispatch(getAllRepositories(language)),
+        clearAction: () => dispatch(clearAllRepositories())
     }
 }
 

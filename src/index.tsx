@@ -22,13 +22,10 @@ const Root: React.SFC<IProps> = props => {
   );
 };
 
-
-const store = configureStore();
-store.dispatch(getAllRepositories('Javascript', 3));
+const initialSearchString = 'Javascript';
+const store = configureStore({ repositoriesState: { searchString:initialSearchString, searching: false }});
+store.dispatch(getAllRepositories(initialSearchString, 3));
 
 ReactDOM.render(<Root store={store} />, document.getElementById('root') as HTMLElement);
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();

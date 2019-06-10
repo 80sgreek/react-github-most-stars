@@ -11,12 +11,12 @@ export default class RepositoryCard extends React.Component<IRepository, any> {
 
     public render() {
         return (
-            <Card>
+            <Card className="c-repositoryCard">
                 <CardContent>
                     <Typography variant="h6" gutterBottom>
-                        <a href={this.props.html_url}>{this.props.full_name}</a>
+                        <a href={this.props.html_url} className="c-repositoryCard-link">{this.props.full_name}</a>
                     </Typography>
-                    <Typography variant="body2" component="p" gutterBottom>
+                    <Typography variant="body2" component="p" className="c-repositoryCard-description">
                         {this.props.description}
                     </Typography>
                     <Grid
@@ -31,8 +31,8 @@ export default class RepositoryCard extends React.Component<IRepository, any> {
                             </Typography>
                         </Grid>
                         <Grid item>
-                            <Typography variant="body2" component="p" gutterBottom>
-                                <StarIcon />
+                            <Typography variant="body2" component="p" gutterBottom className="c-repositoryCard-stars">
+                                <StarIcon className="c-repositoryCard-stars-icon"/>
                                 {this.props.stargazers_count}
                             </Typography>
                         </Grid>

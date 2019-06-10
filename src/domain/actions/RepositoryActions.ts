@@ -29,15 +29,23 @@ export const getAllRepositories: ActionCreator<
       } catch (err) {
         console.log(err);
       }
-
       dispatch({
         searchString: cleanLanguage,
         repositories,
         type: RepositoryActionTypes.GET_ALL
       });
-
     } catch (err) {
       console.error(err);
     }
+  };
+};
+
+export const clearAllRepositories: ActionCreator<
+  ThunkAction<Promise<any>, IRepositoriesState, null, IRepositoryGetAllAction>
+> = () => {
+  return async (dispatch: Dispatch) => {
+    dispatch({
+      type: RepositoryActionTypes.CLEAR_ALL
+    });
   };
 };

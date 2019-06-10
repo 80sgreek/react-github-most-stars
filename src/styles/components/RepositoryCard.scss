@@ -1,0 +1,17 @@
+.c-repositoryCard {
+    width: 100%;
+}
+.c-repositoryCard-link {
+    word-wrap: anywhere;
+}
+.c-repositoryCard .c-repositoryCard-description { 
+    /* I didn't want to add parent selector but specificity needed to increase to override material-ui */
+    margin-bottom: 2rem;
+}
+.c-repositoryCard-stars {
+    display: flex;
+    align-items: center;
+}
+.c-repositoryCard-stars-icon {
+    margin-right: 10px;
+}

@@ -9,7 +9,8 @@ import {
 } from '../interfaces';
 
 const initialState: IRepositoriesState = {
-  items: []
+  items: [],
+  searching: false
 };
 
 export const repositoryReducer: Reducer<IRepositoriesState, RepositoryActions> = (
@@ -20,9 +21,17 @@ export const repositoryReducer: Reducer<IRepositoriesState, RepositoryActions> =
     case RepositoryActionTypes.GET_ALL: {
       return {
         ...state,
-        searchString: action.searchString,
         items: action.repositories,
-        updatedAt: moment()
+        searchString: action.searchString,
+        updatedAt: moment(),
+        searching: false
+      };
+    }
+    case RepositoryActionTypes.CLEAR_ALL: {
+      return {
+        ...state,
+        items: [],
+        searching: true
       };
     }
     default:

@@ -6,8 +6,13 @@ export interface IRepositoryGetAllAction {
     repositories: IRepository[];
 }
 
-export enum RepositoryActionTypes {
-    GET_ALL = 'GET_ALL',
+export interface IRepositoryClearAllAction {
+    type: RepositoryActionTypes.CLEAR_ALL;
 }
 
-export type RepositoryActions = IRepositoryGetAllAction;
+export enum RepositoryActionTypes {
+    GET_ALL = 'GET_ALL',
+    CLEAR_ALL = 'CLEAR_ALL',
+}
+
+export type RepositoryActions = IRepositoryGetAllAction | IRepositoryClearAllAction;

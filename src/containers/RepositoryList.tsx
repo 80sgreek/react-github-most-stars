@@ -18,8 +18,8 @@ class RepositoryList extends React.Component<IProps> {
                 {repositories &&
                     repositories.map(repository => {
                         return (
-                            <ListItem disableGutters>
-                                <RepositoryCard key={repository.id} {...repository} />
+                            <ListItem key={repository.id} disableGutters>
+                                <RepositoryCard {...repository} />
                             </ListItem>
                         );
                     })}
