@@ -11,7 +11,12 @@ const initialState: IRepositoriesState = {
   items: [],
   searching: false
 };
-
+/**
+ * States repository reducer
+ * @param [state] 
+ * @param action 
+ * @returns  
+ */
 export const repositoryReducer: Reducer<IRepositoriesState, RepositoryActions> = (
   state = initialState,
   action

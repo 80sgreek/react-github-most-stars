@@ -1,5 +1,8 @@
 import moment from "moment";
 
+/**
+ * Irepository
+ */
 export interface IRepository {
     id: number;
     full_name: string;
@@ -9,6 +12,9 @@ export interface IRepository {
     stargazers_count: number;
 }
 
+/**
+ * Irepositories state
+ */
 export interface IRepositoriesState {
     readonly searchString?: string;
     readonly items?: IRepository[];

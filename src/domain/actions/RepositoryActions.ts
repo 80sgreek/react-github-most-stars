@@ -13,6 +13,12 @@ import moment from 'moment';
 
 const getMostStarredGithubRepoUrl = (language:string, createdSince:string, numberOfResults:number):string => `https://api.github.com/search/repositories?q=language:${language}+created%3A>${createdSince}&type=Repositories&sort=stars&order=desc&per_page=${numberOfResults}`;
 
+/**
+ * Get all repositories by language
+ * @param language 
+ * @param [numberOfResults] 
+ * @returns  
+ */
 export const getAllRepositories: ActionCreator<
   ThunkAction<Promise<any>, IRepositoriesState, null, IRepositoryGetAllAction>
 > = (language:string, numberOfResults:number = 3) => {
@@ -42,7 +48,10 @@ export const getAllRepositories: ActionCreator<
     }
   };
 };
-
+/**
+ * Dispatches clear all repositories
+ * @returns  
+ */
 export const clearAllRepositories: ActionCreator<
   ThunkAction<Promise<any>, IRepositoriesState, null, IRepositoryGetAllAction>
 > = () => {
