@@ -19,12 +19,7 @@ export default class RepositoryCard extends React.Component<IRepository, any> {
                     <Typography variant="body2" component="p" className="c-repositoryCard-description">
                         {this.props.description}
                     </Typography>
-                    <Grid
-                        container
-                        direction="row"
-                        justify="space-between"
-                        alignItems="center"
-                    >
+                    <Grid container direction="row" justify="space-between" alignItems="center">
                         <Grid item>
                             <Typography variant="body2" component="p" gutterBottom>
                                 Created: {moment(this.props.created_at).format('Do MMMM YYYY')}
