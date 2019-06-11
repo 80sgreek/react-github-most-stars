@@ -2,7 +2,7 @@
 
 This project is an application built using TypeScript, React, Redux and Material UI to show the three most starred GitHub repositories for a given language in the last month. This application accesses Github's search API to retrieve JSON data. 
 
-NOTE: GitHub's search API is rate limited so sometimes 403 reponses can occur which result in no repositories being listed.
+> NOTE: GitHub's search API is rate limited so sometimes 403 reponses can occur which result in no repositories being listed.
 
 ## Get Started
 
@@ -49,12 +49,19 @@ This project was bootstrapped using Facebook's [create-react-app](https://github
 
 Here is an explanation of why I made certain choices in this project.
 
+### Redux
+
+This, I've been told(read) is a great partner to React. As the React components share state it seems like a good idea to use a state management framework form the beginning.
+
+
+
 ### CSS Selector / SASS / Specificity
 
 I added SASS out of habit but then didn't really need to use it. The autoprefixer that is bundled with the CRA (create-react-app) handled browser specific code and MAterial-UI took a lot of the weight out of building the layout. The one situation where I could have used SASS more I intentionally avoided, this was to wrap selectors within other selectors. The reason for this is due to experiences where the compiled CSS starts to become bloated due to unfortunate interactions with imports that has made me stay clear of this. I need to create an example to illustrate the point.
 
 The specificity issue I mention in the title is this:
-```
+
+```SASS
 /*
 * RepositoryCard.scss
 */
@@ -73,4 +80,3 @@ Material UI is included as the last CSS file and so takes priority over all othe
 - Code Coverage with [coveralls](https://coveralls.io/)
 - E2E Testing with Jest + [Puppeteer](https://github.com/GoogleChrome/puppeteer)
 - Serverside Rendering with... I need to investigate this 🤷
-- 
