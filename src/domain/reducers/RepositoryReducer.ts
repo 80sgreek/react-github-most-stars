@@ -1,5 +1,4 @@
 import { Reducer } from 'redux';
-import moment from 'moment';
 import {
   RepositoryActions,
   RepositoryActionTypes
