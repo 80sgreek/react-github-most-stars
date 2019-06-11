@@ -1,4 +1,4 @@
-![travis build status](https://travis-ci.org/80sgreek/react-github-most-stars.svg?branch=master)
+[![Build Status](https://travis-ci.org/80sgreek/react-github-most-stars.svg?branch=master)](https://travis-ci.org/80sgreek/react-github-most-stars)
 
 # GitHub Most Stars
 
