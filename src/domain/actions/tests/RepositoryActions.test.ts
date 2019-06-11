@@ -38,9 +38,11 @@ describe("getAllRepositories", () => {
 
     //ACT
     await store.dispatch<any>(getAllRepositories('', 0));
+    const actions = store.getActions();
 
     //ASSERT
-    expect(store.getActions()).toEqual(expectedActions);
+    expect(actions[0].searchString).toEqual(expectedActions[0].searchString);
+    expect(actions[0].repositories).toEqual(expectedActions[0].repositories);
   });
 
   it("correctly processes the a valid JSON response with no items", async () => {
@@ -61,9 +63,11 @@ describe("getAllRepositories", () => {
 
     //ACT
     await store.dispatch<any>(getAllRepositories('', 0));
+    const actions = store.getActions();
 
     //ASSERT
-    expect(store.getActions()).toEqual(expectedActions);
+    expect(actions[0].searchString).toEqual(expectedActions[0].searchString);
+    expect(actions[0].repositories).toEqual(expectedActions[0].repositories);
   });
 
   it("correctly processes the a valid JSON response with valid items", async () => {
@@ -82,11 +86,13 @@ describe("getAllRepositories", () => {
 
     const store = mockStore();
 
-    //ACT
-    await store.dispatch<any>(getAllRepositories('' ,0));
+    ///ACT
+    await store.dispatch<any>(getAllRepositories('', 0));
+    const actions = store.getActions();
 
     //ASSERT
-    expect(store.getActions()).toEqual(expectedActions);
+    expect(actions[0].searchString).toEqual(expectedActions[0].searchString);
+    expect(actions[0].repositories).toEqual(expectedActions[0].repositories);
   });
 
 });

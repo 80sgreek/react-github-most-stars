@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import thunk from "redux-thunk";
+import thunk, { ThunkAction } from "redux-thunk";
 import configureMockStore from "redux-mock-store";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 import App from './App';
-import { IRepositoriesState } from './domain/interfaces';
-import moment from 'moment';
+import { getAllRepositories } from './domain/actions/RepositoryActions';
+import { AnyAction } from 'redux';
 
 describe('Root App', () => {
 
@@ -25,23 +25,8 @@ describe('Root App', () => {
   it('renders without crashing if using the initial state', () => {
 
     //ARRANGE
-    const storeState:IRepositoriesState = { searching: false };
-    const store = mockStore();
-
-    //ACT && ASSERT 
-    expect(() => {
-      ReactDOM.render(<Provider store={store}>
-        <App />
-      </Provider>, div);
-    }).not.toThrow();
-
-  });
-
-  it('renders without crashing if using an updated state', () => {
-
-    //ARRANGE
-    const storeState:IRepositoriesState = { createdSince: moment(), searching: false};
-    const store = mockStore(storeState);
+    const initialSearchString = 'Javascript';
+    const store = mockStore({ repositoriesState: { searchString:initialSearchString, searching: false }});
 
     //ACT && ASSERT 
     expect(() => {
