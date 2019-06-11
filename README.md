@@ -1,3 +1,5 @@
+![travis build status](https://travis-ci.org/80sgreek/react-github-most-stars.svg?branch=master)
+
 # GitHub Most Stars
 
 ![Demonstration of application](docs/images/example.gif)
