@@ -57,7 +57,13 @@ Here is an explanation of why I made certain choices in this project.
 
 This, I've been told(read) is a great partner to React. As the React components share state it seems like a good idea to use a state management framework form the beginning.
 
+### Material UI
 
+I wanted to use a thrid party react component library so that I could create my applications UI as quickly as possible and gain experience of pulling in third party components. Using Material UI gave me a lot of common elements out of the box without needing to spend time building common UI elements such as input boxes, headers and cards.
+
+### Typescript
+
+After using Typescript recently I'm sold on the advantages of optional typing in JavaScript. The code completion allows you to move a lot faster and the need for breakpoints or `console.log` has greatly decreased as these kinds of issues are found at compile time.
 
 ### CSS Selector / SASS / Specificity
 
@@ -78,9 +84,17 @@ The specificity issue I mention in the title is this:
 
 Material UI is included as the last CSS file and so takes priority over all other previously defined rules. As a result I needed to increase the specificty of this rule to override it. It feels like a code smell as the intention everywhere elseis to limit the specificity. Maybe in the future I could add a mixin that added/removed Material UI overrides but for now I have done this.
 
+### Moment.js
+
+As soon as I saw the need to work with dates I decided to steer clear and move straight to moment.js to avoid the inevitable problems that occur with JavaScript dates.
+
+### Axios
+
+I decided to move to a promise based HTTP client to avoid reinventing the wheel. This was not a necessity but I found it nicer to use as any issues were wrapped away and hidden for me.
+
 ## Where next?
 
-- Setup continuous Integration with [Travis](https://travis-ci.org)
+- ~~Setup continuous Integration with [Travis](https://travis-ci.org)~~ (...or just do this as it doesn't take long)
 - Code Coverage with [coveralls](https://coveralls.io/)
 - E2E Testing with Jest + [Puppeteer](https://github.com/GoogleChrome/puppeteer)
 - Serverside Rendering with... I need to investigate this 🤷
