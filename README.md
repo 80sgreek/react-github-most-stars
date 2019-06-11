@@ -1,5 +1,7 @@
 # GitHub Most Stars
 
+![Demonstration of application](docs/images/example.gif)
+
 This project is an application built using TypeScript, React, Redux and Material UI to show the three most starred GitHub repositories for a given language in the last month. This application accesses Github's search API to retrieve JSON data. 
 
 > NOTE: GitHub's search API is rate limited so sometimes 403 reponses can occur which result in no repositories being listed.
