@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-most-stars/static/css/main.a89b3579.chunk.css",
-    "main.js": "/react-most-stars/static/js/main.eb848910.chunk.js",
-    "main.js.map": "/react-most-stars/static/js/main.eb848910.chunk.js.map",
-    "runtime~main.js": "/react-most-stars/static/js/runtime~main.404e58bd.js",
-    "runtime~main.js.map": "/react-most-stars/static/js/runtime~main.404e58bd.js.map",
-    "static/js/2.ae2fa93c.chunk.js": "/react-most-stars/static/js/2.ae2fa93c.chunk.js",
-    "static/js/2.ae2fa93c.chunk.js.map": "/react-most-stars/static/js/2.ae2fa93c.chunk.js.map",
-    "index.html": "/react-most-stars/index.html",
-    "precache-manifest.328c8b49dcfc75d5c858e379b1c09c70.js": "/react-most-stars/precache-manifest.328c8b49dcfc75d5c858e379b1c09c70.js",
-    "service-worker.js": "/react-most-stars/service-worker.js",
-    "static/css/main.a89b3579.chunk.css.map": "/react-most-stars/static/css/main.a89b3579.chunk.css.map"
+    "main.css": "/react-github-most-stars/static/css/main.a89b3579.chunk.css",
+    "main.js": "/react-github-most-stars/static/js/main.0ebaaf65.chunk.js",
+    "main.js.map": "/react-github-most-stars/static/js/main.0ebaaf65.chunk.js.map",
+    "runtime~main.js": "/react-github-most-stars/static/js/runtime~main.4c946356.js",
+    "runtime~main.js.map": "/react-github-most-stars/static/js/runtime~main.4c946356.js.map",
+    "static/js/2.ae2fa93c.chunk.js": "/react-github-most-stars/static/js/2.ae2fa93c.chunk.js",
+    "static/js/2.ae2fa93c.chunk.js.map": "/react-github-most-stars/static/js/2.ae2fa93c.chunk.js.map",
+    "index.html": "/react-github-most-stars/index.html",
+    "precache-manifest.3e7aaaa1cfa80f21a729ac6be2f0d8cb.js": "/react-github-most-stars/precache-manifest.3e7aaaa1cfa80f21a729ac6be2f0d8cb.js",
+    "service-worker.js": "/react-github-most-stars/service-worker.js",
+    "static/css/main.a89b3579.chunk.css.map": "/react-github-most-stars/static/css/main.a89b3579.chunk.css.map"
   }
 }
