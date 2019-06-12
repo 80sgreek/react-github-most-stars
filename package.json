@@ -5,7 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.1.0",
     "@material-ui/icons": "^4.1.0",
-    "@types/jest": "24.0.13",
+    "@types/jest": "^24.0.13",
     "@types/lodash": "^4.14.134",
     "@types/node": "12.0.7",
     "@types/react": "16.8.19",
@@ -26,6 +26,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -33,9 +34,10 @@
   },
   "browserslist": {
     "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+      ">5%",
+      "last 2 versions",
+      "Safari >= 8",
+      "not ie 10"
     ],
     "development": [
       "last 1 chrome version",
