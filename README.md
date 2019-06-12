@@ -96,7 +96,7 @@ I decided to move to a promise based HTTP client to avoid reinventing the wheel.
 ## Where next?
 
 - ~~Setup continuous Integration with [Travis](https://travis-ci.org)~~ (...or just do this as it doesn't take long)
-- Code Coverage with [coveralls](https://coveralls.io/)
+- ~~Code Coverage with [coveralls](https://coveralls.io/)~~ another quick addition
 - E2E Testing with Jest + [Puppeteer](https://github.com/GoogleChrome/puppeteer)
 - Serverside Rendering with... I need to investigate this 🤷
 - Acessibility (need to check this UI is accessible using screen readers and make necessary changes if not)
