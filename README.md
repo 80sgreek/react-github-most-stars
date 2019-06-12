@@ -9,6 +9,9 @@ This project is an application built using TypeScript, React, Redux and Material
 
 > NOTE: GitHub's search API is rate limited so sometimes 403 reponses can occur which result in no repositories being listed.
 
+Check it out [here](https://80sgreek.github.io/react-github-most-stars)
+
+
 ## Get Started
 
 In order to start this project off you will need to have [node](https://nodejs.org/en/download/) and [yarn](https://yarnpkg.com/lang/en/docs/install/) installed.
