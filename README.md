@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/80sgreek/react-github-most-stars.svg?branch=master)](https://travis-ci.org/80sgreek/react-github-most-stars)
+[![Coverage Status](https://coveralls.io/repos/github/80sgreek/react-github-most-stars/badge.svg?branch=master)](https://coveralls.io/github/80sgreek/react-github-most-stars)
 
 # GitHub Most Stars
 
