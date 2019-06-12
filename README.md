@@ -98,3 +98,5 @@ I decided to move to a promise based HTTP client to avoid reinventing the wheel.
 - Code Coverage with [coveralls](https://coveralls.io/)
 - E2E Testing with Jest + [Puppeteer](https://github.com/GoogleChrome/puppeteer)
 - Serverside Rendering with... I need to investigate this 🤷
+- Acessibility (need to check this UI is accessible using screen readers and make necessary changes if not)
+- Prepare structure for SASS/CSS to allow for variables, mixins and utility classes to be added in the future
