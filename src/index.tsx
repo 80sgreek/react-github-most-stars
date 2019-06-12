@@ -1,11 +1,10 @@
+import 'react-app-polyfill/ie11';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-
 import { Store } from 'redux';
 import configureStore, { IAppState } from './Store';
 import { getAllRepositories } from './domain/actions/RepositoryActions';
-
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
