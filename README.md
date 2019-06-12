@@ -37,7 +37,7 @@ In this project I have used the following technologies:
 | Typescript  | Typed superset of Javascript                               |
 | React       | UI framework                                               |
 | Redux       | State management                                           |
-| Material UI | React components Baed on Google's Material design language |
+| Material UI | React components based on Google's Material design language |
 
 I have also used utilities as as:
 
