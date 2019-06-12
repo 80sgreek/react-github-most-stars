@@ -26,7 +26,7 @@ Once this is running you can navigate to [http://localhost:3000](http://localhos
 
 ### Running unit tests
 
-This project uses **jest** to handle unit tests. These can be run using the command `yarn test`. This runs the test in watch mode allowing you to see watch chnages cause your tests to fail.
+This project uses **jest** to handle unit tests. These can be run using the command `yarn test`. This runs the test in watch mode allowing you to see watch changes cause your tests to fail.
 
 ## Javascript Technologies Used
 
